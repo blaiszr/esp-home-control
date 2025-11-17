@@ -15,18 +15,18 @@ This project demonstrates embedded systems, web development, cloud IoT, and dist
 
 Features
 1. Smart Wi-Fi Setup Portal
-
-  Device boots into Access Point mode if no saved credentials exist
-
-  Users connect to HomeControl_Setup
-
-  Web form stores SSID/password in Preferences
-
-  LEDs to display Wi-Fi connection status
-
-  Credentials persist through reboots
-
-  Hardware reset button wipes saved Wi-Fi
+  
+    Device boots into Access Point mode if no saved credentials exist
+  
+    Users connect to HomeControl_Setup
+  
+    Web form stores SSID/password in Preferences
+  
+    LEDs to display Wi-Fi connection status
+  
+    Credentials persist through reboots
+  
+    Hardware reset button wipes saved Wi-Fi
 
 2. Local Dashboard (AsyncWebServer)
 
