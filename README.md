@@ -126,7 +126,9 @@ OLED Status UI
 
 ## Wiring Overview
   I²C Bus (shared by BME280 + OLED)
+  
   ESP32-S3 → SDA → GPIO 9
+  
   ESP32-S3 → SCL → GPIO 8
   
   
@@ -137,17 +139,26 @@ OLED Status UI
   BME280 → 0x76
   
   LDR Module
+  
   LDR + 10k divider → Analog Pin GPIO 4
+  
   0.1–1 µF capacitor → Analog pin → Ground
+
   
   Wi-Fi Status LEDs
   Green LED → 220Ω Resistor → GPIO 15
+  
   Green LED → GND
+  
   Red LED → 220Ω Resistor → GPIO 16
+  
   Red LED → GND
+
   
   Reset Button
+  
   Button → GPIO 12 (Input Pullup)
+  
   Button → GND
 
 ## MQTT Topic Structure
@@ -155,16 +166,22 @@ OLED Status UI
   The ESP32 publishes data to:
   
   home/temperature
+  
   home/humidity
+  
   home/light
   
   
   Payload example:
   
   {
+  
     "temperature": 72,
+    
     "humidity": 41,
+    
     "light": "Bright"
+    
   }
   
   
@@ -173,31 +190,34 @@ OLED Status UI
   client.subscribe("home/sensorname");
 
 ## Installation & Setup
-  1. Install Required Libraries
+1. Install Required Libraries
   
-    In Arduino IDE or PlatformIO:
-    
-    Adafruit BME280
-    
-    Adafruit Unified Sensor
-    
-    Adafruit SSD1306
-    
-    AsyncTCP
-    
-    ESPAsyncWebServer
-    
-    PubSubClient
+  In Arduino IDE or PlatformIO:
   
-  2. Clone Repository
+  Adafruit BME280
+  
+  Adafruit Unified Sensor
+  
+  Adafruit SSD1306
+  
+  AsyncTCP
+  
+  ESPAsyncWebServer
+  
+  PubSubClient
+  
+2. Clone Repository
+     
     git clone https://github.com/blaiszr/esp-home-control.git
+    
     cd HomeControl-ESP32
   
-  3. Configure Wi-Fi on First Boot
+3. Configure Wi-Fi on First Boot
   
     Power the ESP
     
     Connect to HomeControl_Setup
+   
     Default Password: 12345678
     
     Open:
@@ -211,25 +231,25 @@ OLED Status UI
 ## Remote Cloud Dashboard Setup
   Using HiveMQ Cloud (Free Tier)
   
-  Create an account at HiveMQ Cloud
+  1. Create an account at HiveMQ Cloud
   
-  Create a cluster
+  2. Create a cluster
   
-  Get:
+    Get:
+    
+    Endpoint URL  (Host)
+    
+    Port: 8883 (TLS)
+    
+    Username
+    
+    Password
+    
+  3. In IntegrateMQTT.h, replace username/password and host with yours
   
-  Endpoint URL  (Host)
-  
-  Port: 8883 (TLS)
-  
-  Username
-  
-  Password
-  
-  In IntegrateMQTT.h, replace username/password and host with yours
-  
-  Use the HTML dashboard (dashboard.html) with:
-  
-  const url = 'wss://YOUR-CLUSTER.s1.eu.hivemq.cloud:8884/mqtt'
+    Use the HTML dashboard with:
+    
+    const url = 'wss://YOUR-CLUSTER.s1.eu.hivemq.cloud:8884/mqtt'
   
   
   The ESP32 will begin pushing real-time data.
