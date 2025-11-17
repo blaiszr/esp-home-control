@@ -14,7 +14,7 @@
   This project demonstrates embedded systems, web development, cloud IoT, and distributed communication.
 
 ## Features
-1. Smart Wi-Fi Setup Portal
+**1. Smart Wi-Fi Setup Portal**
   
     Device boots into Access Point mode if no saved credentials exist
   
@@ -28,7 +28,7 @@
   
     Hardware reset button wipes saved Wi-Fi
 
-2. Local Dashboard (AsyncWebServer)
+**2. Local Dashboard (AsyncWebServer)**
   
     Accessible from within the home network
   
@@ -40,7 +40,7 @@
   
     Great for desktop or phone use
 
-3. Cloud Dashboard via MQTT (HiveMQ)
+**3. Cloud Dashboard via MQTT (HiveMQ)**
 
     Secure MQTT over WebSockets
   
@@ -56,13 +56,13 @@
   
     Includes reconnection and error handling
 
-4. OLED Status Display
+**4. OLED Status Display**
   
     Wi-Fi connection status icon
   
     Real-time sensor readings
 
-5. Clean Modular Code Architecture
+**5. Clean Modular Code Architecture**
 
     WiFiSetup.h
   
@@ -174,15 +174,11 @@ OLED Status UI
   
   Payload example:
   
-  '''  {
-  
     "temperature": 72,
     
     "humidity": 41,
     
     "light": "Bright"
-    
-  } '''
   
   
   The browser dashboard subscribes using:
@@ -191,7 +187,7 @@ OLED Status UI
 
 ## Installation & Setup
 
-1. Install Required Libraries
+**1. Install Required Libraries**
   
     In Arduino IDE:
     
@@ -207,13 +203,13 @@ OLED Status UI
       
       PubSubClient
     
-2. Clone Repository:
+**2. Clone Repository**
      
-    '''git clone https://github.com/blaiszr/esp-home-control.git'''
+    git clone https://github.com/blaiszr/esp-home-control.git
     
-    '''cd HomeControl-ESP32'''
+    cd HomeControl-ESP32
   
-3. Configure Wi-Fi on First Boot
+**3. Configure Wi-Fi on First Boot**
   
     Power the ESP
     
@@ -232,9 +228,9 @@ OLED Status UI
 ## Remote Cloud Dashboard Setup
   Using HiveMQ Cloud (Free Tier)
   
-  1. Create an account at HiveMQ Cloud
+  **1. Create an account at HiveMQ Cloud**
   
-  2. Create a cluster
+  **2. Create a cluster**
   
     Get:
     
@@ -246,7 +242,7 @@ OLED Status UI
     
     Password
     
-  3. In IntegrateMQTT.h, replace username/password and host with yours
+  **3. In IntegrateMQTT.h, replace username/password and host with yours**
   
     Use the HTML dashboard with:
     
