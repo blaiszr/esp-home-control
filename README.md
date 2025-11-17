@@ -16,69 +16,69 @@ This project demonstrates embedded systems, web development, cloud IoT, and dist
 Features
 1. Smart Wi-Fi Setup Portal
 
-Device boots into Access Point mode if no saved credentials exist
+  Device boots into Access Point mode if no saved credentials exist
 
-Users connect to HomeControl_Setup
+  Users connect to HomeControl_Setup
 
-Web form stores SSID/password in Preferences
+  Web form stores SSID/password in Preferences
 
-LEDs to display Wi-Fi connection status
+  LEDs to display Wi-Fi connection status
 
-Credentials persist through reboots
+  Credentials persist through reboots
 
-Hardware reset button wipes saved Wi-Fi
+  Hardware reset button wipes saved Wi-Fi
 
 2. Local Dashboard (AsyncWebServer)
 
-Accessible from within the home network
+  Accessible from within the home network
 
-Displays live temperature, humidity, and light values
+  Displays live temperature, humidity, and light values
 
-Auto-refreshing via JavaScript Fetch API
+  Auto-refreshing via JavaScript Fetch API
 
-UI Dark/Light modes
+  UI Dark/Light modes
 
-Great for desktop or phone use
+  Great for desktop or phone use
 
 3. Cloud Dashboard via MQTT (HiveMQ)
 
-Secure MQTT over WebSockets
+  Secure MQTT over WebSockets
 
-ESP32 publishes JSON:
+  ESP32 publishes JSON:
 
-Temperature
+  Temperature
 
-Humidity
+  Humidity
 
-Light Levels
+  Light Levels
 
-Browser dashboard subscribes remotely
+  Browser dashboard subscribes remotely
 
-Includes reconnection and error handling
+  Includes reconnection and error handling
 
 4. OLED Status Display
 
-Wi-Fi connection status icon
+  Wi-Fi connection status icon
 
-Real-time sensor readings
+  Real-time sensor readings
 
 5. Clean Modular Code Architecture
 
-WiFiSetup.h
+  WiFiSetup.h
 
-WiFiIcons.h
+  WiFiIcons.h
 
-SensorControl.h
+  SensorControl.h
 
-IntegrateMQTT.h
+  IntegrateMQTT.h
 
-DisplayWebServer.h
+  DisplayWebServer.h
 
-DisplayOLED.h
+  DisplayOLED.h
 
-homeControl.ino
+  homeControl.ino
 
-Well-structured for scalability and readability.
+  Well-structured for scalability and readability.
 
 📷 Screenshots
 
