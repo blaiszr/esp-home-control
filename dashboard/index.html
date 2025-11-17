@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Home Environment Dashboard</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: Arial, sans-serif; background:#111; color:#eee; text-align:center; padding:20px; }
+    h1 { color:#00bcd4; margin-bottom:25px; font-size: clamp(32px, 6vw, 60px); font-weight: 700;}
+    .cards { display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-bottom:18px; }
+    .card { width:200px; min-height:90px; background:#222; padding:18px; border-radius:10px; box-shadow: 0 2px 6px rgba(0,0,0,0.6); }
+    .card h2 { margin:0 0 10px 0; font-size:18px; }
+    .card p { font-size:20px; margin:0; }
+
+    .status-bar { margin-top:8px; display:flex; justify-content:center; align-items:center; gap:12px; color:#ddd; }
+    .status-pill { display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:18px; font-weight:600; }
+    .dot { width:12px; height:12px; border-radius:50%; display:inline-block; }
+    .status-online { background: rgba(0,200,0,0.12); color: #bfffbf; }
+    .status-offline { background: rgba(200,0,0,0.08); color: #ffb3b3; }
+    .muted { color:#aaa; font-size:13px; }
+
+    @media (max-width:540px) {
+      .cards { flex-direction:column; align-items:center; }
+      .card { width:90%; max-width:420px; }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Home Control Dashboard</h1>
+
+  <div class="cards">
+    <div class="card">
+      <h2>🌡 Temperature</h2>
+      <p id="temp">-- °F</p>
+    </div>
+
+    <div class="card">
+      <h2>💧 Humidity</h2>
+      <p id="hum">-- %</p>
+    </div>
+
+    <div class="card">
+      <h2>💡 Light</h2>
+      <p id="light">--</p>
+    </div>
+  </div>
+
+  <div class="status-bar" role="status" aria-live="polite">
+    <div id="statusPill" class="status-pill status-offline" title="Connection status">
+      <span id="statusDot" class="dot" style="background:#b33;"></span>
+      <span id="statusText">Offline</span>
+    </div>
+
+    <div class="muted">
+      Last seen: <span id="lastSeen">—</span>
+    </div>
+  </div>
+
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+
+    <script>
+    const statusPill = document.getElementById('statusPill');
+    const statusDot  = document.getElementById('statusDot');
+    const statusText = document.getElementById('statusText');
+    const lastSeenEl = document.getElementById('lastSeen');
+
+    const url = 'wss://2f958fde3a15436990f95e5f1d53ebf1.s1.eu.hivemq.cloud:8884/mqtt'
+
+    const options = {
+        clean: true,
+        username: 'homepage',
+        password: 'Homepagepass1', 
+        connectTimeout: 4000,
+    }
+
+    function setOnline() {
+        statusPill.classList.remove('status-offline');
+        statusPill.classList.add('status-online');
+        statusDot.style.background = '#0f0';
+        statusText.textContent = 'Online';
+    }
+    function setOffline() {
+        statusPill.classList.remove('status-online');
+        statusPill.classList.add('status-offline');
+        statusDot.style.background = '#b33';
+        statusText.textContent = 'Offline';
+    }
+    function updateLastSeen(ts) {
+        lastSeenEl.textContent = ts ? new Date(ts).toLocaleString() : '—';
+    }
+
+    let lastMsgTime = 0;
+    const OFFLINE_TIMEOUT = 12_000;
+
+    const client = mqtt.connect(url, options)
+
+    client.on('connect', () => {
+        console.log('Connected to MQTT broker');
+        setOnline();
+
+        client.subscribe('home/temperature', (err) => {
+            if (!err) {
+                console.log('Subscribed to temperature');
+            } else {
+                console.error('Subscription error:', err);
+            }
+        });
+
+        client.subscribe('home/humidity', (err) => {
+            if (!err) {
+                console.log('Subscribed to humidity');
+            } else {
+                console.error('Subscription error:', err);
+            }
+        });
+
+        client.subscribe('home/light', (err) => {
+            if (!err) {
+                console.log('Subscribed to light');
+            } else {
+                console.error('Subscription error:', err);
+            }
+        });
+    });
+
+    client.on("error", (err) => {
+        console.error("MQTT Error:", err.message || err);
+        if (!client.connected) {
+            setOffline();
+        }
+    });
+
+    client.on("close", () => {
+        console.warn("MQTT Connection Closed");
+        setOffline();
+    });
+
+    client.on("reconnect", () => {
+        console.log("MQTT reconnecting...");
+    });
+
+    client.on("offline", () => {
+        console.warn("MQTT is offline");
+        setOffline();
+    });
+
+    client.on('message', (topic, message) => {
+        lastMsgTime = Date.now();
+        updateLastSeen(lastMsgTime);
+        setOnline();
+
+        try {
+            if (topic === "home/temperature") {
+                document.getElementById("temp").innerText = message.toString() + " °F";
+            }
+            if (topic === "home/humidity") {
+                document.getElementById("hum").innerText = message.toString() + " %";
+            }
+            if (topic === "home/light") {
+                document.getElementById("light").innerText = message.toString();
+            } 
+        } catch (err) {
+            console.error("Error with message handling:", err);
+        }
+        
+    });
+
+    setInterval(() => {
+        if (!client.connected) {
+            setOffline();
+            return;
+        }
+        if (lastMsgTime === 0) {
+            if (client.connected) {
+                statusText.textContent = 'Online (no messages yet)';
+                statusDot.style.background = '#ffb400';
+            } else {
+                setOffline();
+            }
+
+            return;
+        }
+        const since = Date.now() - lastMsgTime;
+        if (since > OFFLINE_TIMEOUT) {
+            setOffline();
+        } else {
+            setOnline();
+        }
+    }, 3000);
+    </script>
+</body>
+
+</html>
