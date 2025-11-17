@@ -29,56 +29,56 @@ Features
     Hardware reset button wipes saved Wi-Fi
 
 2. Local Dashboard (AsyncWebServer)
-
-  Accessible from within the home network
-
-  Displays live temperature, humidity, and light values
-
-  Auto-refreshing via JavaScript Fetch API
-
-  UI Dark/Light modes
-
-  Great for desktop or phone use
+  
+    Accessible from within the home network
+  
+    Displays live temperature, humidity, and light values
+  
+    Auto-refreshing via JavaScript Fetch API
+  
+    UI Dark/Light modes
+  
+    Great for desktop or phone use
 
 3. Cloud Dashboard via MQTT (HiveMQ)
 
-  Secure MQTT over WebSockets
-
-  ESP32 publishes JSON:
-
-  Temperature
-
-  Humidity
-
-  Light Levels
-
-  Browser dashboard subscribes remotely
-
-  Includes reconnection and error handling
+    Secure MQTT over WebSockets
+  
+    ESP32 publishes JSON:
+  
+    Temperature
+  
+    Humidity
+  
+    Light Levels
+  
+    Browser dashboard subscribes remotely
+  
+    Includes reconnection and error handling
 
 4. OLED Status Display
-
-  Wi-Fi connection status icon
-
-  Real-time sensor readings
+  
+    Wi-Fi connection status icon
+  
+    Real-time sensor readings
 
 5. Clean Modular Code Architecture
 
-  WiFiSetup.h
-
-  WiFiIcons.h
-
-  SensorControl.h
-
-  IntegrateMQTT.h
-
-  DisplayWebServer.h
-
-  DisplayOLED.h
-
-  homeControl.ino
-
-  Well-structured for scalability and readability.
+    WiFiSetup.h
+  
+    WiFiIcons.h
+  
+    SensorControl.h
+  
+    IntegrateMQTT.h
+  
+    DisplayWebServer.h
+  
+    DisplayOLED.h
+  
+    homeControl.ino
+  
+    Well-structured for scalability and readability.
 
 📷 Screenshots
 
