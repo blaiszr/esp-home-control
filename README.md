@@ -252,24 +252,43 @@ OLED Status UI
   The ESP32 will begin pushing real-time data.
 
 ## Project Structure
+
 HomeControl-ESP32/
+
 │
+
 ├── src/
+
 │   ├── homeControl.ino
+
 │   ├── WiFiSetup.h
+
 │   ├── DisplayWebServer.h
+
 │   ├── SensorControl.h
+
 │   ├── IntegrateMQTT.h
+
 │   ├── DisplayOLED.h
+
 │   ├── WiFiIcons.h
+
 │
+
 ├── dashboard/
+
 │   ├── index.html
+
 │   ├── mqtt.js
+
 │
+
 ├── screenshots/
+
 │
+
 └── README.md
+
 
 ## Troubleshooting
 TODO: Add more troubleshooting
