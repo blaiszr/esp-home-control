@@ -174,7 +174,7 @@ OLED Status UI
   
   Payload example:
   
-  {
+  "{
   
     "temperature": 72,
     
@@ -182,7 +182,7 @@ OLED Status UI
     
     "light": "Bright"
     
-  }
+  }"
   
   
   The browser dashboard subscribes using:
@@ -190,27 +190,28 @@ OLED Status UI
   client.subscribe("home/sensorname");
 
 ## Installation & Setup
+
 1. Install Required Libraries
   
-  In Arduino IDE or PlatformIO:
-  
-  Adafruit BME280
-  
-  Adafruit Unified Sensor
-  
-  Adafruit SSD1306
-  
-  AsyncTCP
-  
-  ESPAsyncWebServer
-  
-  PubSubClient
-  
+    In Arduino IDE or PlatformIO:
+    
+    Adafruit BME280
+    
+    Adafruit Unified Sensor
+    
+    Adafruit SSD1306
+    
+    AsyncTCP
+    
+    ESPAsyncWebServer
+    
+    PubSubClient
+    
 2. Clone Repository
      
-    git clone https://github.com/blaiszr/esp-home-control.git
+    "git clone https://github.com/blaiszr/esp-home-control.git"
     
-    cd HomeControl-ESP32
+    "cd HomeControl-ESP32"
   
 3. Configure Wi-Fi on First Boot
   
