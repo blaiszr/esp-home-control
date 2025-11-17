@@ -1,7 +1,7 @@
 # esp-home-control
 ## HomeControl ESP32 – Smart Wi-Fi Environmental Monitor (MQTT + Web Dashboard)
   
-  Full-stack IoT system built with an ESP32-S3, BME280 sensor, LDR light module, and SSD1306 OLED. The system is capable of monitoring temperature, humidity, and light while providing:
+  Full-stack IoT system built with an ESP32-S3, BME280 sensor, LDR light module, and SSD1306 OLED. The system is capable of monitoring temperature,    humidity, and light while providing:
   
   A local HTML dashboard
   
