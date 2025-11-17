@@ -259,7 +259,9 @@ HomeControl-ESP32/
 
 ├── src/
 
-│   ├── homeControl.ino
+│   ├── homeControl/
+
+    |  ├── homeControl.ino
 
 │   ├── WiFiSetup.h
 
