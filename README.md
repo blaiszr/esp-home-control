@@ -1,5 +1,5 @@
 # esp-home-control
-HomeControl ESP32 – Smart Wi-Fi Environmental Monitor (MQTT + Web Dashboard)
+## HomeControl ESP32 – Smart Wi-Fi Environmental Monitor (MQTT + Web Dashboard)
 
 Full-stack IoT system built with an ESP32-S3, BME280 sensor, LDR light module, and SSD1306 OLED. The system is capable of monitoring temperature, humidity, and light while providing:
 
@@ -13,7 +13,7 @@ A real-time OLED display
 
 This project demonstrates embedded systems, web development, cloud IoT, and distributed communicatione.
 
-Features
+## Features
 1. Smart Wi-Fi Setup Portal
   
     Device boots into Access Point mode if no saved credentials exist
@@ -80,7 +80,7 @@ Features
   
     Well-structured for scalability and readability.
 
-📷 Screenshots
+## 📷 Screenshots
 
 (TODO: ADD SCREENSHOTS)
 
@@ -100,7 +100,7 @@ OLED Status UI
 
 /screenshots/oled-status.png
 
-Hardware Used
+## Hardware Used
 
 ESP32-S3 Dev Board
 
@@ -124,7 +124,7 @@ Button
 
 USB-C cable
 
-Wiring Overview
+## Wiring Overview
 I²C Bus (shared by BME280 + OLED)
 ESP32-S3 → SDA → GPIO 9
 ESP32-S3 → SCL → GPIO 8
@@ -150,7 +150,7 @@ Reset Button
 Button → GPIO 12 (Input Pullup)
 Button → GND
 
-MQTT Topic Structure
+## MQTT Topic Structure
 
 The ESP32 publishes data to:
 
@@ -172,43 +172,43 @@ The browser dashboard subscribes using:
 
 client.subscribe("home/sensors");
 
-Installation & Setup
+## Installation & Setup
 1. Install Required Libraries
 
-In Arduino IDE or PlatformIO:
-
-Adafruit BME280
-
-Adafruit Unified Sensor
-
-Adafruit SSD1306
-
-AsyncTCP
-
-ESPAsyncWebServer
-
-PubSubClient
+  In Arduino IDE or PlatformIO:
+  
+  Adafruit BME280
+  
+  Adafruit Unified Sensor
+  
+  Adafruit SSD1306
+  
+  AsyncTCP
+  
+  ESPAsyncWebServer
+  
+  PubSubClient
 
 2. Clone Repository
-git clone https://github.com/blaiszr/esp-home-control.git
-cd HomeControl-ESP32
+  git clone https://github.com/blaiszr/esp-home-control.git
+  cd HomeControl-ESP32
 
 3. Configure Wi-Fi on First Boot
 
-Power the ESP
+  Power the ESP
+  
+  Connect to HomeControl_Setup
+  Default Password: 12345678
+  
+  Open:
+  
+  192.168.4.1
+  
+  Enter home network SSID/password
+  
+  Device reboots and connects automatically
 
-Connect to HomeControl_Setup
-Default Password: 12345678
-
-Open:
-
-192.168.4.1
-
-Enter home network SSID/password
-
-Device reboots and connects automatically
-
-Remote Cloud Dashboard Setup
+## Remote Cloud Dashboard Setup
 Using HiveMQ Cloud (Free Tier)
 
 Create an account at HiveMQ Cloud
@@ -234,7 +234,7 @@ const url = 'wss://YOUR-CLUSTER.s1.eu.hivemq.cloud:8884/mqtt'
 
 The ESP32 will begin pushing real-time data.
 
-📁 Project Structure
+## 📁 Project Structure
 HomeControl-ESP32/
 │
 ├── src/
@@ -254,7 +254,7 @@ HomeControl-ESP32/
 │
 └── README.md
 
-Troubleshooting
+## Troubleshooting
 TODO: Add more troubleshooting
 
 ❗ No BME280 detected
@@ -263,10 +263,10 @@ Confirm I²C wiring
 
 Ensure SDO → GND (address = 0x76)
 
-License
+## License
 
 MIT License — open-source and free to use.
 
-Contributing
+## Contributing
 
 Feel free to submit issues, improve the dashboard UI, or extend automation capability!
