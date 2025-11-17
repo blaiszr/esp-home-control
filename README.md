@@ -174,7 +174,7 @@ OLED Status UI
   
   Payload example:
   
-    {
+  '''  {
   
     "temperature": 72,
     
@@ -182,7 +182,7 @@ OLED Status UI
     
     "light": "Bright"
     
-    }
+  } '''
   
   
   The browser dashboard subscribes using:
@@ -193,7 +193,7 @@ OLED Status UI
 
 1. Install Required Libraries
   
-    In Arduino IDE or PlatformIO -
+    In Arduino IDE:
     
       Adafruit BME280
       
@@ -209,9 +209,9 @@ OLED Status UI
     
 2. Clone Repository:
      
-    git clone https://github.com/blaiszr/esp-home-control.git
+    '''git clone https://github.com/blaiszr/esp-home-control.git'''
     
-    cd HomeControl-ESP32
+    '''cd HomeControl-ESP32'''
   
 3. Configure Wi-Fi on First Boot
   
@@ -223,11 +223,11 @@ OLED Status UI
     
     Open:
     
-    192.168.4.1
-    
-    Enter home network SSID/password
-    
-    Device reboots and connects automatically
+      IP shown on OLED Display
+      
+      Enter home network SSID/password
+      
+      Device reboots and connects automatically
 
 ## Remote Cloud Dashboard Setup
   Using HiveMQ Cloud (Free Tier)
