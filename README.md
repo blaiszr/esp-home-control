@@ -80,7 +80,7 @@ This project demonstrates embedded systems, web development, cloud IoT, and dist
   
     Well-structured for scalability and readability.
 
-## 📷 Screenshots
+## Screenshots
 
 (TODO: ADD SCREENSHOTS)
 
@@ -234,7 +234,7 @@ const url = 'wss://YOUR-CLUSTER.s1.eu.hivemq.cloud:8884/mqtt'
 
 The ESP32 will begin pushing real-time data.
 
-## 📁 Project Structure
+## Project Structure
 HomeControl-ESP32/
 │
 ├── src/
