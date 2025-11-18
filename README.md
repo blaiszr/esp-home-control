@@ -86,19 +86,22 @@
 
 Wi-Fi Setup Page
 
-/screenshots/setup-page.png
+![Screenshot of Wi-Fi Setup Page](https://github.com/blaiszr/esp-home-control/blob/bc22ab9f1283372f0128ccd98ce020c730df0a9c/screenshots/setup-page.png)
+
 
 Local Dashboard
 
-/screenshots/local-dashboard.png
+![Screenshot of Local Dashboard](https://github.com/blaiszr/esp-home-control/blob/bc22ab9f1283372f0128ccd98ce020c730df0a9c/screenshots/local-dashboard.png)
 
 Remote MQTT Dashboard
 
-/screenshots/mqtt-dashboard.png
+![Screenshot of MQTT Dashboard]()
+
 
 OLED Status UI
 
-/screenshots/oled-display.png
+![Screenshot of OLED Display](https://github.com/blaiszr/esp-home-control/blob/bc22ab9f1283372f0128ccd98ce020c730df0a9c/screenshots/oled-display.png)
+
 
 ## Hardware Used
 
