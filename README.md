@@ -82,8 +82,6 @@
 
 ## Screenshots
 
-(TODO: ADD SCREENSHOTS)
-
 Wi-Fi Setup Page
 
 ![Screenshot of Wi-Fi Setup Page](https://github.com/blaiszr/esp-home-control/blob/bc22ab9f1283372f0128ccd98ce020c730df0a9c/screenshots/setup-page.png)
@@ -95,7 +93,7 @@ Local Dashboard
 
 Remote MQTT Dashboard
 
-![Screenshot of MQTT Dashboard]()
+![Screenshot of MQTT Dashboard](https://github.com/blaiszr/esp-home-control/blob/8b85680f3254e65322862c2e906d8bc6a3e7bad5/screenshots/mqtt-dashboard.png)
 
 
 OLED Status UI
