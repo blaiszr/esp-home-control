@@ -11,7 +11,9 @@
   
   A real-time OLED display
   
-  This project demonstrates embedded systems, web development, cloud IoT, and distributed communication.
+  This project demonstrates embedded systems, web development, cloud IoT, and distributed communication.\
+
+  ### Want to see my house temp?! [CLICK HERE!](blaiszr.github.io/home_control.html)
 
 ## Features
 **1. Smart Wi-Fi Setup Portal**
