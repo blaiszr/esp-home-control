@@ -98,7 +98,7 @@ Remote MQTT Dashboard
 
 OLED Status UI
 
-/screenshots/oled-status.png
+/screenshots/oled-display.png
 
 ## Hardware Used
 
