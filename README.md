@@ -252,7 +252,6 @@ OLED Status UI
   The ESP32 will begin pushing real-time data.
 
 ## Troubleshooting
-TODO: Add more troubleshooting
 
 ❗ No BME280 detected
 
